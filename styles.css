@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: linear-gradient(
+    135deg,
+    #0a0a0f 0%,
+    #1a0f2e 25%,
+    #2d1b4e 50%,
+    #1a0f2e 75%,
+    #0a0a0f 100%
+  );
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+#neuralCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(138, 43, 226, 0.15) 0%,
+    rgba(75, 0, 130, 0.1) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.content {
+  text-align: center;
+  max-width: 600px;
+  z-index: 1;
+  position: relative;
+}
+
+.logo {
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.logo-icon {
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  animation: float 6s ease-in-out infinite;
+}
+
+.brand-name {
+  font-family: "Orbitron", monospace;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.tagline h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.highlight {
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Orbitron", monospace;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 300;
+  margin-top: 1.5rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+
+.status {
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Orbitron", monospace;
+  letter-spacing: 0.02em;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #8a2be2 0%, #4b0082 50%, #9400d3 100%);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 2.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  .tagline h2 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 2.2rem;
+    letter-spacing: 0.06em;
+  }
+
+  .tagline h2 {
+    font-size: 1.3rem;
+  }
+
+  .status-indicator {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+}
